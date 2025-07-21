@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Health Dashboard</title>
+</head>
+<body>
+    <h1>DevOps HealthCheck Portal</h1>
+    <button onclick="checkHealth()">Check System Health</button>
+    <pre id="result"></pre>
+
+    <script>
+        function checkHealth() {
+            fetch('http://localhost:5000/health')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+                });
+        }
+    </script>
+</body>
+</html>
